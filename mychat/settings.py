@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +26,8 @@ SECRET_KEY = 'django-insecure-lcv2ee6#vr@@kquoa4_z!v5me=t1vre(@f@zhohbyj=b&8$d18
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['chatroyapp.herokuapp.com']
+
 
 
 # Application definition
@@ -77,10 +79,10 @@ WSGI_APPLICATION = 'mychat.wsgi.application'
 DATABASES = {
     "default": {
         'ENGINE': 'django.db.backends.postgresql',
-        "NAME": "abra_chat",
-        'USER': 'postgres',
-        'PASSWORD': 'Azerty1234567890',
-        'HOST': 'localhost',
+        "NAME": "d855th4bgfg2c6",
+        'USER': 'hnclrxuglmngsq',
+        'PASSWORD': '88e23ed7239d481e36ee11f4f6e9fc8330a9d06f662629b387c65784d38dee99',
+        'HOST': 'ec2-35-173-91-114.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
@@ -119,9 +121,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-
-STATIC_URL = 'static/'
+# STATIC_ROOT=os.path.join()
+# STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR/'static']
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = "/static/"
+django_heroku.settings(locals())
 
 MEDIA_URL = 'media/'
 
