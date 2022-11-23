@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+{% block content%}
+<h1>All your messages:</h1>
+<div class="mes">
+{%for chat in chats%}
+<div class="addmessage"> Sender:{{chat.msg_sender}}<br>
+    Receiver:{{chat.msg_receiver}}<br>
+Message:{{chat}} <br>created at :{{chat.creation_date}}<br>
+<a href="{%url 'delete' chat.id%}"><button class="buttonmes btn btn-outline-danger btn-sm" type="submit">Delete this message</button></a> <br>
+</div>
+
+{%endfor%}
+{%for chat in chats2%}
+<div class="addmessage">
+Sender:{{chat.msg_sender}} <br>
+Receiver:{{chat.msg_receiver}}<br>
+Message:{{chat}} <br>created at :{{chat.creation_date}}<br>
+<a href="{%url 'delete' chat.id%}"><button class="buttonmes btn btn-outline-danger btn-sm" type="submit">Delete this message</button></a> <br>
+</div>
+{%endfor%}
+</div>
+{%endblock%}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{%block content%}
+    <h1 class = 'reg'>Registration info</h1>
+<form method="post">
+{% csrf_token %}
+{% comment %} {{form.as_p}} {% endcomment %}
+<div class="allform">
+        <div class="class1">
+        <label class="my_class1" for="{{ field.auto_id }}">First Name  <br> </label>{{ form.first_name }} <br>
+        <label class="my_class2" for="{{ field.auto_id }}">Last Name </label>{{ form.last_name }} <br>
+        <label class="my_class3" for="{{ field.auto_id }}">Age</label>{{ form.age }} <br>
+        <label class="my_class4" for="{{ field.auto_id }}">Birth date</label>{{ form.born_date }} <br>
+       
+        </div>
+        <div class="class2">
+        <label class="my_class5" for="{{ field.auto_id }}"> Email</label>{{ form.email }} <br>
+        <label class="my_class6" for="{{ field.auto_id }}">Phone number</label>{{ form.phone_number }} <br>
+
+        
+
+         </div>
+        <button type="submit">Register</button>        
+        </form>
+{%endblock content%}

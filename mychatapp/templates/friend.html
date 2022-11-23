@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+
+{% block content%}
+<div class="bannieremusicians"></div>
+
+
+
+<div class="container">
+
+    <h1>Musicians in the city</h1><br>
+    {% for post in posts %}
+
+    {% csrf_token %}
+ 
+ 
+ <div class="allform">
+        <div class="classresults1">
+       
+        <div class="firstresults">
+        <label class="result result1" for="{{ field.auto_id }}">First Name :   </label> <span class="res res1">  {{  post.first_name }}</span> <br>
+        <label class="result result2" for="{{ field.auto_id }}">Last Name :  </label> <span class="res res2">  {{  post.last_name }}</span> <br>
+        <label class="result result3" for="{{ field.auto_id }}">Age : </label><span class="res res3">  {{ post.age }} </span><br>
+        <label class="result result4" for="{{ field.auto_id }}">Birth date : </label><span class="res res4">  {{ post.born_date }} </span><br>
+    </div>
+        <div class="secondresults">
+        <label class="result result5" for="{{ field.auto_id }}"> Email : </label> <span class="res res5">  {{  post.email }}</span> <br>
+        <label class="result result6" for="{{ field.auto_id }}">Phone number :</label><span class="res res6">  {{  post.phone_number }}</span> <br>
+       <a class="addlink" href="{% url 'detail' post.id%}"> <button class="add_newmember" type="submit">Add a new member to your band</button></a>
+    </div>
+   
+    </div>
+        
+
+
+
+    {% comment %} <h1>{{forloop.counter}}.First Name  <br> </label> {{post.first_name}}</h1>
+    <p>{{post.content}}</p>
+    <p>Date Created: {{post.date_created}}</p>
+    <p>Last Update: {{post.date_updated}}</p> {% endcomment %}
+    {% endfor %}
+</div>
+<footer class="text-center text-lg-start">
+    <!-- Copyright -->
+    <div class="text-center p-3">
+      <span class="copyright">  © 2022 Copyright:</span>
+      <a class="text-dark" href="home">ShareMusic</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+{%endblock%}

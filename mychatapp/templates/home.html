@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{%block content%}
+    <h1 >Chat</h1>
+    <h2 class="hey">Hi {{user}}, welcome to your personnal space</h2><br>
+    <div class="buttons">
+     <a class="message" href="{% url 'message' %}"><button class="leftside">Click here to find all your message</button></a>
+    <a class="gol" href="{% url 'search'%}"><button class="leftside">Add friend</button></a>
+    <a class="gol" href="{% url 'unread'%}"><button class="leftside">All your unread message</button></a>
+</div>
+{%endblock content%}

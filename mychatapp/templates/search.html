@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+
+{% block content%}
+
+    
+<h1>Search another user </h1>
+
+<form method="post" action="{% url 'friends' %}">
+    {% csrf_token %}
+    <input  class="searchbar_music" name="searchfirstname" type="text" placeholder="Search by first_name">
+    <button class="searchbar1" type="submit">Search</button>
+
+  </form>
+  
+    
+    <!-- Copyright -->
+  </footer>
+  {%endblock%}
