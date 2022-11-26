@@ -1,13 +1,13 @@
 {% extends 'base.html'%}
 
 {% block content%}
-<div class="bannieremusicians"></div>
+
 
 
 
 <div class="container">
 
-    <h1>Musicians in the city</h1><br>
+    <h1 class='userfriend'> Users </h1><br>
     {% for post in posts %}
 
     {% csrf_token %}
@@ -39,12 +39,5 @@
     <p>Last Update: {{post.date_updated}}</p> {% endcomment %}
     {% endfor %}
 </div>
-<footer class="text-center text-lg-start">
-    <!-- Copyright -->
-    <div class="text-center p-3">
-      <span class="copyright">  © 2022 Copyright:</span>
-      <a class="text-dark" href="home">ShareMusic</a>
-    </div>
-    <!-- Copyright -->
-  </footer>
+
 {%endblock%}
