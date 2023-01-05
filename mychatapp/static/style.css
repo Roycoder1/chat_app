@@ -20,7 +20,7 @@ body{
     /* border: 2px solid black; */
     height: 100px;
     position: absolute;
-    bottom: 500px;
+    bottom: 570px;
     left: 350px;
 }
 h1{
@@ -408,7 +408,7 @@ margin-top: 160px;
 }
 .slogan{
     position: relative;
-    bottom: 85px;
+    bottom: 135px;
 }
 .spacetext{
     margin-top: 20px;
@@ -416,4 +416,24 @@ margin-top: 160px;
 .userfriend{
     margin-left: 120px;
     margin-top: 200px;
+}
+p .span ,.helptext{
+    display: none;
+}
+form .ul {
+    display: none;
+}
+form .ul .li{
+    list-style-type: none;
+}
+#id_username,#id_password1,#id_password2,#id_password{
+    margin-bottom: 30px;
+    width: 180px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 1.4em;
+}
+#id_password2{
+    margin-top: 30px;
+    margin-right: 80px;
 }

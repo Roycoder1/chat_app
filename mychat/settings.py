@@ -76,6 +76,19 @@ WSGI_APPLICATION = 'mychat.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+
+
+# DATABASES = {
+#     "default": {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         "NAME": "api",
+#         'USER': 'postgres',
+#         'PASSWORD': 'Azerty1234567890',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+        
+#     }
+# }
 DATABASES = {
     "default": {
         'ENGINE': 'django.db.backends.postgresql',

@@ -3,7 +3,7 @@
     <h1 class = 'reg'>Registration info</h1>
 <form method="post">
 {% csrf_token %}
-{% comment %} {{form.as_p}} {% endcomment %}
+
 <div class="allform">
         <div class="class1">
         <label class="my_class1" for="{{ field.auto_id }}">First Name  <br> </label>{{ form.first_name }} <br>

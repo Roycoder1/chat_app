@@ -99,7 +99,7 @@ def sentMessages(request, pk):
     profile = UserProfile.objects.get(id=friend.profile.id)
     data = json.loads(request.body)
     
-    print(data)
+    
     
     new_chat = data["msg"]
     new_chat_message = ChatMessage.objects.create(body=new_chat, msg_sender=user, msg_receiver=profile, seen=False )
