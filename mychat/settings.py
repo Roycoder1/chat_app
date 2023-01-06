@@ -95,7 +95,7 @@ WSGI_APPLICATION = 'mychat.wsgi.application'
 DATABASES = {
     "default": {
         'ENGINE': 'django.db.backends.postgresql',
-        "NAME": "api",
+        "NAME": "abra_chat",
         'USER': 'postgres',
         'PASSWORD': 'Azerty1234567890',
         'HOST': 'localhost',
