@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
+import environ
+# import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,9 +25,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-lcv2ee6#vr@@kquoa4_z!v5me=t1vre(@f@zhohbyj=b&8$d18'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
 
-ALLOWED_HOSTS = ['chatroyapp.herokuapp.com']
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+
+DEBUG=env('DEBUG')
+
+# ALLOWED_HOSTS = ['chatroyapp.herokuapp.com']
+ALLOWED_HOSTS = ['*']
+
 
 
 
@@ -38,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'mychatapp'
 ]
@@ -50,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'mychat.urls'
@@ -78,27 +92,27 @@ WSGI_APPLICATION = 'mychat.wsgi.application'
 
 
 
-# DATABASES = {
-#     "default": {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         "NAME": "api",
-#         'USER': 'postgres',
-#         'PASSWORD': 'Azerty1234567890',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-        
-#     }
-# }
 DATABASES = {
     "default": {
         'ENGINE': 'django.db.backends.postgresql',
-        "NAME": "d855th4bgfg2c6",
-        'USER': 'hnclrxuglmngsq',
-        'PASSWORD': '88e23ed7239d481e36ee11f4f6e9fc8330a9d06f662629b387c65784d38dee99',
-        'HOST': 'ec2-35-173-91-114.compute-1.amazonaws.com',
+        "NAME": "api",
+        'USER': 'postgres',
+        'PASSWORD': 'Azerty1234567890',
+        'HOST': 'localhost',
         'PORT': '5432',
+        
     }
 }
+# DATABASES = {
+#     "default": {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         "NAME": "d855th4bgfg2c6",
+#         'USER': 'hnclrxuglmngsq',
+#         'PASSWORD': '88e23ed7239d481e36ee11f4f6e9fc8330a9d06f662629b387c65784d38dee99',
+#         'HOST': 'ec2-35-173-91-114.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
@@ -137,9 +151,10 @@ USE_TZ = True
 # STATIC_ROOT=os.path.join()
 # STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR/'static']
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT='static_root'
 STATIC_URL = "/static/"
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 
 MEDIA_URL = 'media/'
 
