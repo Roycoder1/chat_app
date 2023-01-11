@@ -21,8 +21,8 @@ class UserProfilForm(forms.ModelForm):
         fields = '__all__' 
         exclude = ['user','friends']
         widgets = {
-            'first_name': forms.Textarea(attrs={'class' : 'fn'}),
-            'last_name': forms.Textarea(attrs={'class' : 'ln'}),
+            # 'first_name': forms.CharField(widget=forms.CharField(max_length=300)),
+            # 'last_name': forms.CharField(widget=forms.CharField(max_length=300)),
             
             'born_date': forms.DateTimeInput(attrs={'type' : 'date', 'class':'date'}),
             'email': forms.EmailInput(attrs={'class' : 'mail'}),

@@ -402,6 +402,8 @@ margin-top: 160px;
 .titleabra{
     font-size: 3em;
     margin-top: 70px;
+    text-align: center;
+    margin-left: 88px;
 }
 .addmessage{
     margin-top: 50px;
@@ -436,4 +438,13 @@ form .ul .li{
 #id_password2{
     margin-top: 30px;
     margin-right: 80px;
+}
+.class1 input, .class2 input{
+    margin-top: 20px;
+    border-radius: 10px;
+    width: 180px;
+    height: 30px;
+}
+#id_phone_number{
+    margin-bottom: 30px;
 }

@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-import environ
-# import django_heroku
+# import environ
+import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,19 +25,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-lcv2ee6#vr@@kquoa4_z!v5me=t1vre(@f@zhohbyj=b&8$d18'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False)
-)
+DEBUG = True
+# env = environ.Env(
+#     # set casting, default value
+#     DEBUG=(bool, False)
+# )
 
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+# environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
-DEBUG=env('DEBUG')
+# DEBUG=env('DEBUG')
 
-# ALLOWED_HOSTS = ['chatroyapp.herokuapp.com']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['chatroyapp.herokuapp.com']
+# ALLOWED_HOSTS = ['*']
 
 
 
@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'whitenoise.runserver_nostatic',
+    # 'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'mychatapp'
 ]
@@ -63,7 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'mychat.urls'
@@ -151,10 +151,10 @@ USE_TZ = True
 # STATIC_ROOT=os.path.join()
 # STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR/'static']
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_ROOT='static_root'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT='static_root'
 STATIC_URL = "/static/"
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
 
 MEDIA_URL = 'media/'
 
